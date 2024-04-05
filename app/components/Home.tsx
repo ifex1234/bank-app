@@ -2,7 +2,9 @@ import Icons from "@expo/vector-icons/Octicons";
 import Icons2 from "@expo/vector-icons/MaterialIcons";
 import Icons3 from "@expo/vector-icons/Ionicons";
 import { StyleSheet, Text, View, TextInput } from "react-native";
+import { Octicon, MaterialIcons, Ionicons } from "./homeIconTab";
 import React, { useState } from "react";
+import { Link } from "expo-router";
 const Home = () => {
   const [password, setPassword] = useState("");
   return (
@@ -26,18 +28,27 @@ const Home = () => {
       </View>
 
       <View style={styles.iconBars}>
-        <View style={styles.itemBar}>
-          <Text style={styles.text}>QUICK TRANSFERS</Text>
-          <Icons name="arrow-switch" size={30} color="#fff" />
-        </View>
-        <View style={styles.itemBar}>
-          <Text style={styles.text}>QUICK AIRTIME</Text>
-          <Icons2 name="send-to-mobile" size={30} color="#fff" />
-        </View>
-        <View style={styles.itemBar}>
-          <Text style={styles.text}>QUICK QR</Text>
-          <Icons2 name="qr-code-2" size={30} color="#fff" />
-        </View>
+        <Octicon
+          iconName="arrow-switch"
+          iconSize={30}
+          iconColor="#fff"
+          onpress={() => {}}
+          textLabel="QUICK TRANSFERS"
+        />
+        <MaterialIcons
+          iconName="send-to-mobile"
+          iconSize={30}
+          iconColor="#fff"
+          onpress={() => {}}
+          textLabel="QUICK TRANSFERS"
+        />
+        <MaterialIcons
+          iconName="qr-code-2"
+          iconSize={30}
+          iconColor="#fff"
+          onpress={() => {}}
+          textLabel="QUICK QR"
+        />
         <View style={styles.itemBar}>
           <Text style={styles.text}>BALANCE ENQUIRY</Text>
           <Icons2 name="account-balance-wallet" size={30} color="#fff" />
@@ -74,6 +85,9 @@ const Home = () => {
       <View style={styles.print}>
         <Icons2 name="fingerprint" size={20} color="#fff" />
         <Text style={styles.text}>LOGIN WITH FINGERPRINT</Text>
+        <Link href="/(tabs)">
+          <Text>home</Text>
+        </Link>
       </View>
     </View>
   );

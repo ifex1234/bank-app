@@ -10,6 +10,26 @@ type IconsProp1 = {
   iconColor: string;
   textLabel: string;
 };
+type IconsProp2 = {
+  iconName:
+    | "send-to-mobile"
+    | "qr-code-2"
+    | "account-balance-wallet"
+    | "help-outline"
+    | "account-balance"
+    | "person-pin-circle";
+  iconSize: number;
+  onpress: () => void;
+  iconColor: string;
+  textLabel: string;
+};
+type IconsProp3 = {
+  iconName: "compass-outline" | "arrow-redo-outline";
+  iconSize: number;
+  onpress: () => void;
+  iconColor: string;
+  textLabel: string;
+};
 export function Octicon({
   iconName,
   iconSize,
@@ -24,20 +44,32 @@ export function Octicon({
     </TouchableOpacity>
   );
 }
-export function MaterialIcons() {
+export function MaterialIcons({
+  iconName,
+  iconSize,
+  iconColor,
+  onpress,
+  textLabel,
+}: IconsProp2) {
   return (
-    <View style={styles.itemBar}>
-      <Text style={styles.text}>QUICK TRANSFERS</Text>
-      <Icons2 name="arrow-switch" size={30} color="#fff" />
-    </View>
+    <TouchableOpacity style={styles.itemBar} onPress={onpress}>
+      <Text style={styles.text}>{textLabel}</Text>
+      <Icons2 name={iconName} size={iconSize} color={iconColor} />
+    </TouchableOpacity>
   );
 }
-export function Ionicons() {
+export function Ionicons({
+  iconName,
+  iconSize,
+  iconColor,
+  onpress,
+  textLabel,
+}: IconsProp3) {
   return (
-    <View style={styles.itemBar}>
-      <Text style={styles.text}>QUICK TRANSFERS</Text>
-      <Icons3 name="arrow-switch" size={30} color="#fff" />
-    </View>
+    <TouchableOpacity style={styles.itemBar} onPress={onpress}>
+      <Text style={styles.text}>{textLabel}</Text>
+      <Icons3 name={iconName} size={iconSize} color={iconColor} />
+    </TouchableOpacity>
   );
 }
 
